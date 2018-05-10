@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment">
+    
+    <div class="ui huge header">Add a new comment:</div>
+    <h2> <%= noteVar.title %> </h2>
+    
+    <form class="ui form" action="/notes/<%= noteVar._id %>/comments" method="POST">
+        <div class="field">
+            <label>Author</label>
+            <input type="text" name="comment[author]" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Comment Content</label>
+            <textarea name="comment[text]"></textarea>
+        </div>
+        <a class="ui black basic button" href="/notes/<%= noteVar._id %>">Back</a>
+
+        <input class="ui violet big basic button" type="submit">
+    </form>
+
+    
+</div>
+
+<% include ../partials/footer %>

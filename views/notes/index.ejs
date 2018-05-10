@@ -1,0 +1,57 @@
+<% include ../partials/header %>
+
+<div class="ui main text container">
+    <div id="flip"><strong>Interact Here</strong></div>
+ 	<div id="panel"><strong>jQuery has been setup in NodeJS too...</strong></div>
+ 	<script> 
+            $(document).ready(function(){
+                $("#flip").mouseenter(function(){
+                    $("#panel").slideToggle("slow");
+                });
+                $("#flip").mouseleave(function(){
+                    $("#panel").slideToggle("slow");
+                });
+            });
+    </script>
+    <div class="ui huge header">Broadridge Google-Notes Wall</div> ( All information is from <a id="banner" href="https://www.google.com/"> Google </a> )
+    <div class="ui top  attached segment">
+        <div class="ui divided items">
+            <% notesVar.forEach(function(note){ %>
+                <div class="item">
+                     <div class="image">
+                        <% if(note.image === undefined || note.image === null || note.image === ""){ %>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAP2mRYkkklE64tzOqwSxd46l1LBfcBRMZv6gcD2L2AEUnuG6P" >
+                        <% }else { %>
+                            <img src="<%= note.image %>" >
+                        <% } %>
+                     </div>
+
+                    <div class="content">
+                         <a class="header" href="/notes/<%= note._id %>"><%=note.title%></a>
+                         <div class="meta">
+                             <span><%= note.created.toDateString() %></span>
+                         </div>
+                         <div class="description">
+                            <% if(note.body === undefined || note.body === null || note.body === ""){ %>
+                                <%= note.body = "No Content yet..." %>
+                            <% }else { %>
+                                 <p><%- note.body.substring(0, 100) %>...</p>
+                            <% } %>
+                         </div>
+                         <div class="extra">
+                             <a class="ui floated basic red button" href="/notes/<%= note._id %>">
+                                 More
+                                 <i class="right chevron icon"></i>
+                             </a>
+                         </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="extra">
+        <p>Yifan2018 &reg;<p>
+    </div>
+</div>
+
+<% include ../partials/footer %> 

@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit <%= noteVar.title %></div>
+    <form class="ui form" action="/notes/<%= noteVar._id %>?_method=PUT" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="newNoteVar[title]" value="<%= noteVar.title %>">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="newNoteVar[image]" value="<%= noteVar.image %>">
+        </div>
+        <div class="field">
+            <label>Note Content</label>
+            <textarea name="newNoteVar[body]"><%= noteVar.body %></textarea>
+        </div>
+        <input class="ui violet big basic button" type="submit">
+    </form>
+</div>
+
+<% include ../partials/footer %>

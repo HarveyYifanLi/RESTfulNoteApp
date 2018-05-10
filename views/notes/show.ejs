@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= noteVar.title %></div>
+    <div class="ui top attached ">
+        <div class="item">
+            <div class="image">
+                <% if(noteVar.image === undefined || noteVar.image === null || noteVar.image === ""){ %>
+                        <img class="ui centered rounded image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAP2mRYkkklE64tzOqwSxd46l1LBfcBRMZv6gcD2L2AEUnuG6P" >
+                <% }else { %>
+                        <img class="ui centered rounded image" src="<%= noteVar.image %>" >
+                <% } %>
+            </div>
+            <div class="content">
+                <span><strong><%= noteVar.created.toDateString() %></strong></span>
+            </div>
+            <div class="description">
+                <p><%- noteVar.body %></p>
+            </div>
+            
+            <br>
+            <div>
+                <form action="/notes/<%= noteVar._id %>/comments/new" method="GET">
+                    <button class="ui green basic button">Leave a comment below</button>
+                </form>
+                <hr>            
+                <% noteVar.comments.forEach(function(comment){ %>
+                <p><strong><%= comment.author %></strong> - <%= comment.text%></p>
+                <% }) %>
+            </div>
+            
+            <br>
+            <br>
+            <a class="ui orange basic button" href="/notes">Back</a>
+            <a class="ui violet basic button" href="/notes/<%= noteVar._id %>/edit">Edit Note</a>
+            <form id="delete" action="/notes/<%= noteVar._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete Note</button>
+            </form>
+            
+        </div>
+    </div>
+    
+</div>
+<% include ../partials/footer %>
+

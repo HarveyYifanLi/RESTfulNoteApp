@@ -1,0 +1,84 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+<div class="container" style="background: gainsboro">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<div class="jumbotron">
+				<h1>RESTful Routes</h1>
+				<p>Here is a table of all 7 RESTful routes used for this RESTful Note App</p>
+			</div>
+			<table class="table table-hover table-bordered">
+			<thead>	
+				<tr>
+					<th>Name</th>
+					<th>Path</th>
+					<th>HTTP Verb</th>
+					<th>Purpose</th>
+					<th>Database Method</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Index</td>
+					<td>/notes</td>
+					<td>GET</td>
+					<td>List all notes</td>
+					<td>Note.find()</td>
+				</tr>
+				<tr class="success">
+					<td>New</td>
+					<td>/notes/new</td>
+					<td>GET</td>
+					<td>Show new note form</td>
+					<td>N/A</td>
+				</tr>
+				<tr class="success">
+					<td>Create</td>
+					<td>/notes</td>
+					<td>POST</td>
+					<td>Create a new note, then redirect somewhere</td>
+					<td>Note.create()</td>
+				</tr>
+				<tr class="info">
+					<td>Show</td>
+					<td>/notes/:id</td>
+					<td>GET</td>
+					<td>Show info about one specific note</td>
+					<td>Note.findById()</td>
+				</tr>
+				<tr class="warning">
+					<td>Edit</td>
+					<td>/notes/:id/edit</td>
+					<td>GET</td>
+					<td>Show edit form for one note</td>
+					<td>Note.findById()</td>
+				</tr>
+				<tr class="warning">
+					<td>Update</td>
+					<td>/notes/:id</td>
+					<td>PUT</td>
+					<td>Update a particular note, then redirect somewhere</td>
+					<td>Note.findByIdAndUpdate()</td>
+				</tr>
+				<tr class="danger">
+					<td>Destroy</td>
+					<td>/notes/:id</td>
+					<td>DELETE</td>
+					<td>Delete a particular note, then redirect somewhere</td>
+					<td>Note.findByIdAndRemove()</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+	<br>
+	<form class="ui black basic button" action="/notes" method="GET">
+        <button class="ui black basic button">Home</button>
+    </form>
+</div>	
+	
+<% include ../partials/footer %>
