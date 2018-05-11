@@ -2,6 +2,19 @@ var mongoose = require("mongoose");
 var Note = require("./models/note");
 var Comment = require("./models/comment");
 
+// Add one data instance as a first test
+// Note.create({
+//     title:"first note",
+//     image:"https://farm6.staticflickr.com/5145/5649228252_7dbaf5434c.jpg",
+//     body:"Need to insert some stuff in the DB first..."
+// }, function(err, dbres){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log(dbres);
+//     }
+// })
+
 var seedsData = [
     { 
     title:"Broadridge Financial Solutions, Inc.",
