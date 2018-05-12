@@ -1,7 +1,7 @@
 # RESTfulNoteApp
 ## RESTful Web App
 
-This is a Blog Post style RESTful Web App developed in NodeJS.
+This is a Blog Post style RESTful Web App developed in NodeJS, with the complete user authentication functionality integrated.
 
 ## Dependencies
 
