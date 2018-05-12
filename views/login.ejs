@@ -1,12 +1,18 @@
 <% include ./partials/header %> 
 
-<h1>Login to post or make any changes to the Notes and Comments!</h1>
 <br>
-<div>
-    <form action="/login" method="POST">
-        <input type="text" name="username" placeholder="enter the username">
-        <input type="password" name="password" placeholder="enter the password">
-        <input type="submit">Login</button>
+<div class="ui main text container segment">
+    <div class="ui huge header">Login To Your Account</div>
+    <form class="ui form" action="/login" method="POST">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="enter the username">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="enter the password">
+        </div>
+        <input class="ui violet big basic button" type="submit" value="Login!">
     </form>
 </div>
 

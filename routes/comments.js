@@ -41,7 +41,7 @@ var Comment = require("../models/comment");
  
  //middleware to check if a use is currently logged in:
  function isLoggedIn(req, res, next){
-  if(req.isAuthenticated){
+  if(req.isAuthenticated()){
    return next();
   }
   res.redirect("/login");
