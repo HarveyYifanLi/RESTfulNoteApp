@@ -28,3 +28,7 @@ body {
     padding: 40px;
     display: none;
 }
+
+#login, #logout, #signup, #current {
+    color: gold;
+}

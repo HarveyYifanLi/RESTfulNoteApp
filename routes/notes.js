@@ -14,11 +14,12 @@ router.get("/notes", function(req,res){
 })
 
 // new route
-router.get("/notes/new", function(req,res){
+//Moreover, Can't post a new note until loggedin!!
+router.get("/notes/new", isLoggedIn, function(req,res){
     res.render("notes/new");
 })
 //create route
-router.post("/notes", function(req,res){
+router.post("/notes", isLoggedIn, function(req,res){
     if(req.body.noteVar.title ==="" && req.body.noteVar.image ==="" && req.body.noteVar.body ===""){
         res.redirect("/notes/new");
     }else{
@@ -46,7 +47,7 @@ router.get("/notes/:id", function(req,res){
 })
 
 //edit route
-router.get("/notes/:id/edit", function(req,res){
+router.get("/notes/:id/edit", isLoggedIn, function(req,res){
     Note.findById(req.params.id, function(err,dbres){
         if(err){
             console.log(err);
@@ -57,7 +58,7 @@ router.get("/notes/:id/edit", function(req,res){
     })
 })
 //update route
-router.put("/notes/:id", function(req,res){
+router.put("/notes/:id", isLoggedIn, function(req,res){
     //need to sanitize the newNoteVar[body] first...
     req.body.newNoteVar.body = req.sanitize(req.body.newNoteVar.body);
     Note.findByIdAndUpdate(req.params.id, req.body.newNoteVar, function(err, dbres){
@@ -70,7 +71,7 @@ router.put("/notes/:id", function(req,res){
 })
 
 //delete route
-router.delete("/notes/:id", function(req,res){
+router.delete("/notes/:id", isLoggedIn, function(req,res){
     Note.findByIdAndRemove(req.params.id, function(err,dbres){
         if(err){
             console.log(err);
@@ -80,6 +81,14 @@ router.delete("/notes/:id", function(req,res){
         }
     })
 })
+
+//middleware to check if a use is currently logged in:
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 
 module.exports = router;

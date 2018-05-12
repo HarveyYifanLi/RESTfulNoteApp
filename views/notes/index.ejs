@@ -2,7 +2,7 @@
 
 <div class="ui main text container">
     <div id="flip"><strong>Interact Here</strong></div>
- 	<div id="panel"><strong>jQuery has been setup in NodeJS too...</strong></div>
+ 	<div id="panel"><strong>Login to post or make any changes to the Notes and Comments!</strong></div>
  	<script> 
             $(document).ready(function(){
                 $("#flip").mouseenter(function(){
@@ -13,7 +13,9 @@
                 });
             });
     </script>
-    <div class="ui huge header">Broadridge Google-Notes Wall</div> ( All information is from <a id="banner" href="https://www.google.com/"> Google </a> )
+    <div class="ui huge header">Broadridge Google-Notes Wall</div> 
+    ( All information is from <a id="banner" href="https://www.google.com/"> Google </a> )
+    
     <div class="ui top  attached segment">
         <div class="ui divided items">
             <% notesVar.forEach(function(note){ %>
@@ -49,6 +51,7 @@
             <% }) %>
         </div>
     </div>
+    
     <div class="extra">
         <p>Yifan2018 &reg;<p>
     </div>
