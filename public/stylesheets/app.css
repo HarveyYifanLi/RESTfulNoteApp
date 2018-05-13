@@ -29,6 +29,10 @@ body {
     display: none;
 }
 
+#menu{
+  background-color: DimGrey;  
+}
+
 #login, #logout, #signup, #current {
     color: gold;
 }
