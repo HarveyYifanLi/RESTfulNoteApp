@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<div class="ui text container">
+    <br>
+    <h2>Live Chat</h2>
+    <hr>
+    <ul id="messages"></ul>
+    <strong>Enter to Chat</strong>
+    
+    <form id="messageForm" action="/livechat">
+      <input id="u" value ="<%= currentUser.username %>:" autocomplete="off" style="width: 60px;"/>
+      <input id="m" autocomplete="off" placeholder="Enter the chat message here:"/><button>Send</button>
+    </form>
+       
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+          
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message', $('#u').val());
+          $('#u').val("<%= currentUser.username %>:");
+          socket.emit('chat message', $('#m').val());
+          $('#m').val("");
+
+          return false;
+        });
+        
+        socket.on('chat message', function(msg){
+            var incomingMessage = $('<li>').text(msg);
+            $('#messages').append(incomingMessage);
+        });
+        
+      });
+    </script>
+</div>
+
+<% include ./partials/footer %>

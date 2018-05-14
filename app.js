@@ -1,5 +1,11 @@
 var express = require("express");
 var app = express();
+
+// socket server setup
+var http = require("http");
+var server = http.Server(app);
+var io= require('socket.io')(server);
+
 var mongoose = require("mongoose");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
@@ -67,7 +73,35 @@ app.use(noteRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
 
+// chat app route
+app.get("/livechat", isLoggedIn, function(req,res){
+    res.render("chat");
+});
+
+io.on('connection', function (socket) {
+  socket.on('chat message', function (msg) {
+    io.emit('chat message', msg);
+  });
+});
+// middleware to check the user's login status
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
+
+
 //app.listen()
-app.listen(process.env.PORT,process.env.IP, function(){
-    console.log("The server is running...");
+// app.listen(process.env.PORT,process.env.IP, function(){
+//     console.log("The server is running...");
+// });
+
+server.listen(process.env.PORT, process.env.IP, function(){
+  var addr = server.address();
+  console.log("Chat server running at", addr.address + ":" + addr.port);
+});
+
+app.listen(3000, process.env.IP, function(){
+   console.log("App server running at", process.env.IP + ":" + 3000);
 });
