@@ -83,6 +83,7 @@ io.on('connection', function (socket) {
     io.emit('chat message', msg);
   });
 });
+
 // middleware to check the user's login status
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
