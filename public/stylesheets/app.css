@@ -23,19 +23,19 @@ body {
     padding: 5px;
     color: white;
     text-align: center;
-    background-color: grey;
+    background-color: SteelBlue;
     border: solid 1px #c3c3c3;
 }
 
 #panel {
-    background-color: grey;
+    background-color: LightSteelBlue;
     color: white;
     padding: 40px;
     display: none;
 }
 
 #menu{
-  background-color: DimGrey;  
+  background-color: SteelBlue;  
 }
 
 #login, #logout, #signup, #current {
