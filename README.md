@@ -11,6 +11,8 @@ with the below complete functionality integrated:
 
 Please see package.json for all the dependencies called in this project.
 
+## Stacks
+
 ### Client Side:
 HTML+EJS, CSS (with Bootstrap and SementicUI), Javascript, jQuery, Socket.IO
 
