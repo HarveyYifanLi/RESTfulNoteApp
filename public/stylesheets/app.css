@@ -12,6 +12,11 @@ i.icon {
 
 body {
     background: gainsboro;
+    background-image: url("https://www.broadridge.com/_assets/images/content/content-global-hq-new.jpg");
+}
+
+#WallHeader {
+    color:ivory;
 }
 
 #panel, #flip {
