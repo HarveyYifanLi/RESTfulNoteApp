@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Broadridge Notes</title>
-        <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/857697222481264641/nmE0ZX9n_400x400.jpg" />
+        <link  rel="shortcut icon" href="https://pbs.twimg.com/profile_images/866699172682108928/RJMBPS9I_400x400.jpg" />
         <link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
         <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -10,15 +10,15 @@
         <div id="menu" class="ui six item inverted menu">
             <div class="ui container">
                 <div class="header item"><i class="code icon"></i>Broadridge Note Site</div>
-                <a href="/" class="item">Home</a>
-                <a href="/notes/new" class="item">New Note</a>
-                <a href="/livechat" class ="item">Live Chat</a>
-                <a href="https://www.broadridge.com/" class="item">Broadridge</a>
+                <a href="/" class="item"><strong>Home</strong></a>
+                <a href="/notes/new" class="item"><strong>New Note</strong></a>
+                <a href="/livechat" class ="item"><strong>Live Chat</strong></a>
+                <a href="https://www.broadridge.com/" class="item"><strong>Broadridge</strong></a>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <% if(!currentUser){ %>
-                            <li><a id="login" href="/login">Login</a></li>
-                            <li><a id="signup" href="/register">Sign Up</a></li>
+                            <li><a id="login" href="/login"><strong>Login</strong></a></li>
+                            <li><a id="signup" href="/register"><strong>Sign Up</strong></a></li>
                         <% } else { %>
                             <li><a id="current" href="#">Signed In As <%= currentUser.username %></a></li>
                             <li><a id="logout" href="/logout">Logout</a></li>
