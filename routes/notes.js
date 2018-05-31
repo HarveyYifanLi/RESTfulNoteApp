@@ -23,7 +23,20 @@ router.post("/notes", isLoggedIn, function(req,res){
     if(req.body.noteVar.title ==="" && req.body.noteVar.image ==="" && req.body.noteVar.body ===""){
         res.redirect("/notes/new");
     }else{
-        Note.create(req.body.noteVar, function(err,dbres){
+        var title = req.body.noteVar.title;
+        var image = req.body.noteVar.image;
+        var body = req.body.noteVar.body;
+        var author = {
+            username: req.user.username,
+            id: req.user._id
+        }
+        var newNote ={
+            title: title,
+            image: image,
+            body: body,
+            author: author
+        }
+        Note.create(newNote, function(err,dbres){
             if(err){
                 console.log(err);
                 res.redirect("/notes/new");

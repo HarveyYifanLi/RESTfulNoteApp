@@ -66,6 +66,7 @@ passport.deserializeUser(User.deserializeUser());
 // a middleware
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
+    console.log("**********Here are the content of the req.user: " + req.user);
     next();
 })
 //use the routers

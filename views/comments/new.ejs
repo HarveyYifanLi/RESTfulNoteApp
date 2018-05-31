@@ -7,10 +7,6 @@
     
     <form class="ui form" action="/notes/<%= noteVar._id %>/comments" method="POST">
         <div class="field">
-            <label>Author</label>
-            <input type="text" name="comment[author]" placeholder="title">
-        </div>
-        <div class="field">
             <label>Comment Content</label>
             <textarea name="comment[text]"></textarea>
         </div>

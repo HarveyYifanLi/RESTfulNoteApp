@@ -12,8 +12,12 @@
                 <% } %>
             </div>
             <div class="content">
-                <span><strong><%= noteVar.created.toDateString() %></strong></span>
+                <span><%= noteVar.created.toDateString() %>,</span>
             </div>
+            <div class="content">
+                <span><strong><em>Created by: <%= noteVar.author.username %></em></strong></span>
+            </div>
+            <br>
             <div class="description">
                 <p><%- noteVar.body %></p>
             </div>
@@ -25,7 +29,7 @@
                 </form>
                 <hr>            
                 <% noteVar.comments.forEach(function(comment){ %>
-                <p><strong><%= comment.author %></strong> - <%= comment.text%></p>
+                <p><strong><%= comment.author.username %></strong> - <%= comment.text%></p>
                 <% }) %>
             </div>
             

@@ -25,10 +25,14 @@ var Comment = require("../models/comment");
              if(req.body.comment.author ==="" && req.body.comment.text ===""){
                 res.redirect("/notes/"+req.params.id+"/comments/new");
             }else{
+                 //req.body.comment.author.username = req.user.username; // this way eliminating the need to set the value of the comment author on the client side; req.user is an user JS object
                  Comment.create(req.body.comment, function(err,dbres){
                      if(err){
                          console.log(err);
                      }else{
+                         dbres.author.username = req.user.username;
+                         dbres.author.id = req.user._id;
+                         dbres.save();
                          note.comments.push(dbres);
                          note.save();
                          res.redirect("/notes/"+req.params.id);
