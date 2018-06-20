@@ -5,7 +5,7 @@
 ## RESTful Web App
 
 This is a Blog Post style RESTful Web App developed in NodeJS, 
-with the below complete functionality integrated: 
+with the below complete extra functionalities integrated: 
 1) User Authentication functionality 
 2) Live Chat capacity between all loggedin users  
 
